@@ -1,7 +1,9 @@
 var person = {
     name: 'Maxim',
     age: 25,
-    hobbies: ['Sport', 'Cooking']
+    hobbies: ['Sport', 'Cooking'],
+    role: [1, 'author'],
+    types: [1, 2, 3, 'second']
 };
 var favoritesActivities;
 favoritesActivities = ['Sport'];
