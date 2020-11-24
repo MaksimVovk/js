@@ -1,39 +1,17 @@
-const person: {
-  name: string
-  age: number
-  hobbies: string[]
-  role: [number, string]
-  types: (string | number)[]
-} = {
-  name: 'Maxim',
-  age: 25,
-  hobbies: ['Sport', 'Cooking'],
-  role: [1, 'author'],
-  types: [1, 2, 3, 'second']
+function combine(input1: number | string, input2: number | string) {
+  let result
+
+  if (input1 === 'number' && input2 === 'number') {
+    result = input1 + input2
+  } else {
+    result = input1.toString() + input2.toString()
+  }
+
+  return result
 }
 
-// const ADMIN = 0
-// const READ_ONLY = 1
-// const AUTHOR = 2
+const combineAges = combine(30, 26)
+const combineNames = combine('Test', ' Tester')
 
-enum Role { ADMIN, READ_ONLY, AUTHOR }
-
-const per = {
-  name: 'Maxim',
-  age: 25,
-  hobbies: ['Sport', 'Cooking'],
-  role: Role.ADMIN,
-}
-
-if (per.role === Role.AUTHOR) {
-  console.log('is author')
-}
-
-let favoritesActivities: any[] //anything: array/array of, numbers, chars
-favoritesActivities = ['Sport', 1, { id: 1, name: 'Sport' }]
-
-console.log(person.name)
-
-for (const hobby of person.hobbies) {
-  console.log(hobby)
-}
+console.log(combineAges)
+console.log(combineNames)
