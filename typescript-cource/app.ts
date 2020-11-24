@@ -12,6 +12,23 @@ const person: {
   types: [1, 2, 3, 'second']
 }
 
+// const ADMIN = 0
+// const READ_ONLY = 1
+// const AUTHOR = 2
+
+enum Role { ADMIN, READ_ONLY, AUTHOR }
+
+const per = {
+  name: 'Maxim',
+  age: 25,
+  hobbies: ['Sport', 'Cooking'],
+  role: Role.ADMIN,
+}
+
+if (per.role === Role.AUTHOR) {
+  console.log('is author')
+}
+
 let favoritesActivities: string[]
 favoritesActivities = ['Sport']
 
