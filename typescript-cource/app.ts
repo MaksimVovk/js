@@ -29,8 +29,8 @@ if (per.role === Role.AUTHOR) {
   console.log('is author')
 }
 
-let favoritesActivities: string[]
-favoritesActivities = ['Sport']
+let favoritesActivities: any[] //anything: array/array of, numbers, chars
+favoritesActivities = ['Sport', 1, { id: 1, name: 'Sport' }]
 
 console.log(person.name)
 

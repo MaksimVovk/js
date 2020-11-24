@@ -23,8 +23,8 @@ var per = {
 if (per.role === Role.AUTHOR) {
     console.log('is author');
 }
-var favoritesActivities;
-favoritesActivities = ['Sport'];
+var favoritesActivities; //anything: array/array of, numbers, chars
+favoritesActivities = ['Sport', 1, { id: 1, name: 'Sport' }];
 console.log(person.name);
 for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
     var hobby = _a[_i];
