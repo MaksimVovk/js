@@ -1,20 +1,12 @@
-function add(n1, n2) {
-    return n1 + n2;
+var userInput;
+var userName;
+userInput = 5;
+userInput = 'Max';
+if (typeof userInput === 'string') {
+    userName = userInput;
 }
-function printResult(num) {
-    console.log('printResult: ', num);
+function generateError(message, code) {
+    // throw { message, errorCode: code }
+    console.log(this.userInput);
 }
-printResult(add(5, 12));
-// let conbineValue: Function
-var conbineValue;
-conbineValue = add;
-// conbineValue = printResult
-console.log('conbineValue ', conbineValue(8, 8));
-function addAndHandler(n1, n2, cb) {
-    var result = n1 + n2;
-    cb(result);
-}
-// addHandler(10, 20, printResult)
-addAndHandler(10, 20, function (result) {
-    console.log('addAndHandler ', result);
-});
+generateError('An error occurred', 500);
