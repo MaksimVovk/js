@@ -1,12 +1,4 @@
-var userInput;
-var userName;
-userInput = 5;
-userInput = 'Max';
-if (typeof userInput === 'string') {
-    userName = userInput;
-}
-function generateError(message, code) {
-    // throw { message, errorCode: code }
-    console.log(this.userInput);
-}
-generateError('An error occurred', 500);
+"use strict";
+const button = document.querySelector('button');
+button.addEventListener('click', () => console.log('Thanks God, you did it!!!'));
+//# sourceMappingURL=app.js.map
