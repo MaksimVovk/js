@@ -1,2 +1,1 @@
-# js
-experimenting with technologies
+experimenting with js
