@@ -31,6 +31,12 @@ Any JavaScript array, type can be flexible or strict (regarding the element type
 **Example**
 > [1, 2, 3]
 
+## Tuple
+Added by TypeScript: Fixed-length array
+
+**Example**
+> [1, 2]
+
 
 ### Type Casing
 In TypeScript, you work with types like string or number all the times.

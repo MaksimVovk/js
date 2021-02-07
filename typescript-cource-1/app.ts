@@ -2,11 +2,18 @@ const person: {
   name: string
   age: number
   hobbies: string[]
+  role: [number, string] //tuple
+  // role: (number | string)[]
 } = {
+// const person = {
   name: 'Max',
   age: 26,
-  hobbies: ['Sport', 'Cooking']
+  hobbies: ['Sport', 'Cooking'],
+  role: [2, 'author']
 }
+
+// person.role.push('admin')
+// person.role[1] = 10
 
 // let favoriteActivities: any[]
 // favariteActivities = ['Sport', 1]
