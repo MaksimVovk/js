@@ -20,10 +20,16 @@ Just these two, no "truthy" or "falsy" values
 > true, false
 
 ## object
-Any JavaScript object^ more specific types(type of object) are possible
+Any JavaScript object, more specific types(type of object) are possible
 
 **Example**
 > { age: 30 }
+
+## Array
+Any JavaScript array, type can be flexible or strict (regarding the element types)
+
+**Example**
+> [1, 2, 3]
 
 
 ### Type Casing
