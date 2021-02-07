@@ -19,6 +19,12 @@ Just these two, no "truthy" or "falsy" values
 **Example**
 > true, false
 
+## object
+Any JavaScript object^ more specific types(type of object) are possible
+
+**Example**
+> { age: 30 }
+
 
 ### Type Casing
 In TypeScript, you work with types like string or number all the times.
