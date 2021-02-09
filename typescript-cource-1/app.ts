@@ -28,7 +28,8 @@ const person = {
 // let favoriteActivities: any[]
 // favariteActivities = ['Sport', 1]
 
-let favoriteActivities: string[]
+// let favoriteActivities: any
+let favoriteActivities: any[]
 favoriteActivities = ['Sport']
 
 console.log(person.name)

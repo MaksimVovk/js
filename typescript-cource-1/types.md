@@ -41,7 +41,13 @@ Added by TypeScript: Fixed-length array
 Added by TypeScript: Automatically enumerated global constant identiers
 
 **Example**
-> {NEW, OLD}
+> enum {NEW, OLD}
+
+## any
+Any king of value, not specific type assignment
+
+**Example**
+> * (any)
 
 
 ### Type Casing
