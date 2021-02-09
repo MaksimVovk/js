@@ -55,6 +55,12 @@ if you need multiple data types
 **Example**
 > * number | string | boolean
 
+## Literal Types
+what value do you expect
+
+**Example**
+> * value: 'as-number'
+
 
 ### Type Casing
 In TypeScript, you work with types like string or number all the times.
