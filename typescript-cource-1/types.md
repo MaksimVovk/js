@@ -49,6 +49,12 @@ Any king of value, not specific type assignment
 **Example**
 > * (any)
 
+## Union
+if you need multiple data types
+
+**Example**
+> * number | string | boolean
+
 
 ### Type Casing
 In TypeScript, you work with types like string or number all the times.
