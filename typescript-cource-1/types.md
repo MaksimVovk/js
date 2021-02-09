@@ -61,6 +61,12 @@ what value do you expect
 **Example**
 > * value: 'as-number'
 
+## Type Aliases
+alias for types
+
+**Example**
+> * type alias = number | string
+
 
 ### Type Casing
 In TypeScript, you work with types like string or number all the times.
