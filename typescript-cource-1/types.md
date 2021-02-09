@@ -37,6 +37,12 @@ Added by TypeScript: Fixed-length array
 **Example**
 > [1, 2]
 
+## Enum
+Added by TypeScript: Automatically enumerated global constant identiers
+
+**Example**
+> {NEW, OLD}
+
 
 ### Type Casing
 In TypeScript, you work with types like string or number all the times.
