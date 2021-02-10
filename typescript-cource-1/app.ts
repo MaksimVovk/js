@@ -1,33 +1,18 @@
-// function return types. Same like for var
-function add (n1: number, n2: number): number {
-  return n1 + n2
+//type unknow
+let userInput: unknown
+let userName: string
+
+userInput = 5
+userInput = 'Max'
+
+if (typeof userInput === 'string') {
+  userName = userInput
 }
 
-// type "void". Not necessary
-function printResult (num: number): void {
-  console.log(num)
-}
+// let userInput: unknown
+// let userName: string
+//userName = userInput //error because unknow != stirng
 
-// type "undefind".
-function printResultU (num: number): undefined {
-  console.log(num)
-  return
-}
-
-function addAndHandle (n1: number, n2: number, cb: (num: number) => void) {
-  const result = n1 + n2
-  cb(result)
-}
-
-printResult(add(5, 12))
-addAndHandle(24, 25, (result) => { console.log('RESULT CB', result) })
-
-// type "Function"
-// let combineValue: Function
-let combineValue: (a: number, b: number) => number
-
-combineValue = add
-// combineValue = printResult
-// combineValue = 5
-
-console.log(combineValue(8, 8))
+// let userInput: any
+// let userName: string
+//userName = userInput //not error because any is flexible
