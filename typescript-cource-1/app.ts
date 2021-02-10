@@ -15,3 +15,13 @@ function printResultU (num: number): undefined {
 }
 
 printResult(add(5, 12))
+
+// type "Function"
+// let combineValue: Function
+let combineValue: (a: number, b: number) => number
+
+combineValue = add
+// combineValue = printResult
+// combineValue = 5
+
+console.log(combineValue(8, 8))
