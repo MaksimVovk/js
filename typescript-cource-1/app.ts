@@ -1,32 +1,17 @@
-type Combinable = number | string
-type ConversionDescriptor = 'as-number' | 'as-text'
-
-function combine (input1: Combinable, input2: Combinable, resultConversion: ConversionDescriptor) {
-  let result
-
-  if (typeof input1 === 'number' && typeof input2 === 'number' || resultConversion === 'as-number') {
-    result = +input1 + +input2
-  } else {
-    result = input1.toString() + input2.toString()
-  }
-
-  return result
-
-  // if (resultConversion === 'as-number') {
-  //   return +result
-  // } else {
-  //   return result.toString()
-  // }
+// function return types. Same like for var
+function add (n1: number, n2: number): number {
+  return n1 + n2
 }
 
-const combinedAges = combine(26, 25, 'as-number')
+// type "void". Not necessary
+function printResult (num: number): void {
+  console.log(num)
+}
 
-console.log(combinedAges)
+// type "undefind".
+function printResultU (num: number): undefined {
+  console.log(num)
+  return
+}
 
-const combinedNames = combine('Max', 'Lena', 'as-text')
-
-console.log(combinedNames)
-
-const combinedStringAges = combine('26', '25', 'as-number')
-
-console.log(combinedStringAges)
+printResult(add(5, 12))
