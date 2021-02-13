@@ -93,3 +93,18 @@ Enable strict null checks.
 Enable strict checking of function types.
 
 > "strictFunctionTypes": true
+
+### "noUnusedLocals"
+Report errors on unused locals.
+
+> "noUnusedLocals": true
+
+### "noUnusedParameters"
+Report errors on unused parameters.
+
+> "noUnusedParameters": true
+
+### "noImplicitReturns"
+Report error when not all code paths in function return a value.
+
+> "noImplicitReturns": true
