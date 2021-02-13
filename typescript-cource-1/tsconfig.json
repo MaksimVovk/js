@@ -75,6 +75,5 @@
   "exclude": [
     "node_modules",  // would be the default
   ]
-  // "exclude": ["./Basics"]
   // "include": ["app.ts"]
 }
