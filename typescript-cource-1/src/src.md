@@ -72,3 +72,9 @@ Redirect output structure to the directory.
 Specify the root directory of input files. Use to control the output directory structure with --outDir.
 
 > "rootDir": "./src"
+
+### "noEmitOnError"
+Generates or not generated .js file, when we have an error in .ts file
+
+> "noEmitOnError": true
+> "noEmitOnError": false //defalut value
