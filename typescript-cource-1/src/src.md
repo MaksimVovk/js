@@ -62,3 +62,13 @@ Generates a sourcemap for each corresponding '.d.ts' file.
 Generates corresponding '.map' file.
 
 > "sourceMap": true
+
+### "outDir"
+Redirect output structure to the directory.
+
+> "outDir": "./dist"
+
+### "rootDir"
+Specify the root directory of input files. Use to control the output directory structure with --outDir.
+
+> "rootDir": "./src"
