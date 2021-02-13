@@ -1,4 +1,4 @@
-# Watch mode
+el# Watch mode
 
 > tsc app.ts -w
 
@@ -78,3 +78,18 @@ Generates or not generated .js file, when we have an error in .ts file
 
 > "noEmitOnError": true
 > "noEmitOnError": false //defalut value
+
+### "noImplicitAny"
+Raise error on expressions and declarations with an implied 'any' type.
+
+> "noImplicitAny": true
+
+### "strictNullChecks"
+Enable strict null checks.
+
+> "strictNullChecks": true
+
+### "strictFunctionTypes"
+Enable strict checking of function types.
+
+> "strictFunctionTypes": true
