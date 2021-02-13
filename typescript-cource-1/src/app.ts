@@ -4,8 +4,16 @@ class Department {
   constructor (n: string) {
     this.name = n
   }
+
+  log (this: Department) {
+    console.log('Department: ' + this.name)
+  }
 }
 
 const accounting = new Department('Accounting')
 
-console.log(accounting)
+accounting.log()
+
+const accountingCopy = { name: 'Copy of Accounting', log: accounting.log }
+
+accountingCopy.log()
