@@ -1,18 +1,16 @@
-class Department {
+abstract class Department {
   static currentYear = '2021'
   // private readonly id: string
   // private name: string
   protected employees: string[] = []
 
-  constructor (private readonly id: string, public name: string) {
+  constructor (readonly id: string, public name: string) {
     // this.id = id
     // this.name = name
     console.log(Department.currentYear)
   }
 
-  log (this: Department) {
-    console.log(`Departmnet ${this.id}: ${this.name}`)
-  }
+  abstract log (this: Department): void
 
   addEmployee (employee: string) {
     // this.id = 'd2' //Cannot assign to 'id' because it is a read-only property.
@@ -36,6 +34,10 @@ class ITDepartment extends Department {
   constructor (id: string, admins: string[]) {
     super(id, 'IT')
     this.admins = admins
+  }
+
+  log () {
+    console.log('IT department id: ' + this.id)
   }
 }
 
@@ -78,6 +80,10 @@ class AccountingDepartment extends Department {
   printReports() {
     console.log(this.reports)
   }
+
+  log () {
+    console.log('Accounting Department id: ' + this.id)
+  }
 }
 
 // Department
@@ -94,6 +100,7 @@ accounting.addReports('Something went wrong!')
 accounting.addEmployee('Max')
 accounting.addEmployee('Alex')
 accounting.printReports()
+accounting.log()
 
 console.log(accounting)
 console.log(accounting.mostRecentReport)
@@ -108,4 +115,5 @@ const it = new ITDepartment('d1', ['Max'])
 it.addEmployee('Alex')
 it.addEmployee('Max')
 it.printEmpleyessInformation()
+it.log()
 console.log(it)
