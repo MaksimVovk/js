@@ -14,3 +14,5 @@ get
 set
 
 static - call method from class without creating new class // Math.pow()
+
+abstract
