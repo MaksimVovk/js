@@ -19,12 +19,15 @@
 
 ## interface - discribe object or class
 > interface Greetable { ... }
+>
 > class Person implements Greetable { ... }
 
 ## interface extends - extend interface used one or more another interfaces
 
 > interface Named { ... }
+>
 > interface Named1 { ... }
+>
 > interface Greetable extends Named, Named1 { ... }
 
 ## Interfaces as Function Types
@@ -35,3 +38,33 @@
 >let add: AddFn
 >
 >add = (n1: number, n2: number) => n1 + n2
+
+## Optional Parameters & Properties
+**name?**
+Can use in interfaces, classes and constructors, but only use in bundle with interface
+>interface Named {
+>  readonly name?: string
+>  // name: string
+>}
+>
+>class Person implements Greetable {
+
+>  name?: string
+> 
+>  age = 30
+>
+>  constructor (n?: string) {
+>
+>    if (n) {
+>      this.name = n
+>    }
+>  }
+>
+>  greet (phrase: string) {
+>    if (this.name) {
+>      console.log(phrase + ' ' + this.name)
+>    } else {
+>      console.log('Hi!')
+>    }
+>  }
+>}
