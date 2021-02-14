@@ -16,3 +16,7 @@ set
 static - call method from class without creating new class // Math.pow()
 
 abstract
+
+interface - discribe object or class
+> interface Greetable { ... }
+> class Person implements Greetable { ... }
