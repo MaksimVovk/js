@@ -1,3 +1,12 @@
+// type AddFn = (n1: number, n2: number) => number
+interface AddFn {
+  (n1: number, n2: number): void
+}
+
+let add: AddFn
+
+add = (n1: number, n2: number) => n1 + n2
+
 interface Named {
   readonly name: string
   // name: string
