@@ -1,7 +1,7 @@
 class Department {
   // private readonly id: string
   // private name: string
-  private employees: string[] = []
+  protected employees: string[] = []
 
   constructor (private readonly id: string, public name: string) {
     // this.id = id
@@ -37,6 +37,13 @@ class AccountingDepartment extends Department {
   constructor (id: string, private reports: string[]) {
     super(id, 'Accounting')
   }
+  addEmployee (name: string) {
+    if (name === 'Max') {
+      return
+    }
+
+    this.employees = [...this.employees, name]
+  }
 
   addReports (text: string) {
     this.reports = [...this.reports, text]
@@ -52,11 +59,13 @@ const it = new ITDepartment('d1', ['Max'])
 
 console.log(accounting)
 accounting.log()
+accounting.addEmployee('Max')
+accounting.addEmployee('Alex')
 accounting.addReports('Something went wrong!')
 accounting.printReports()
 
 it.addEmployee('Alex')
-it.addEmployee('Alex')
+it.addEmployee('Max')
 it.printEmpleyessInformation()
 // accounting.employees[2] = 'Manu' //Property 'employees' is private and only accessible within class 'Department'.
 console.log(it)
