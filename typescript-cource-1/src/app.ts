@@ -1,4 +1,5 @@
 class Department {
+  static currentYear = '2021'
   // private readonly id: string
   // private name: string
   protected employees: string[] = []
@@ -6,6 +7,7 @@ class Department {
   constructor (private readonly id: string, public name: string) {
     // this.id = id
     // this.name = name
+    console.log(Department.currentYear)
   }
 
   log (this: Department) {
@@ -21,6 +23,10 @@ class Department {
     console.log(this.name)
     console.log(this.employees.length)
     console.log(this.employees)
+  }
+
+  static createEmployee (name: string) {
+    return { name }
   }
 }
 
@@ -74,23 +80,32 @@ class AccountingDepartment extends Department {
   }
 }
 
+// Department
+const newEmployee = Department.createEmployee('Max')
+console.log('New Employee', newEmployee)
+console.log('current year', Department.currentYear)
+
+console.log('-------------------------------------')
+// Accounting department
 const accounting = new AccountingDepartment('d2', [])
 
 accounting.mostRecentReport = 'Year end report'
 accounting.addReports('Something went wrong!')
-console.log(accounting)
 accounting.addEmployee('Max')
 accounting.addEmployee('Alex')
 accounting.printReports()
+
+console.log(accounting)
 console.log(accounting.mostRecentReport)
 
+// accounting.employees[2] = 'Manu' //Property 'employees' is private and only accessible within class 'Department'.
+// const accountingCopy = { name: 'Copy of Accounting', log: accounting.log }
+
+// accountingCopy.log()
+console.log('-------------------------------------')
+// IT department
 const it = new ITDepartment('d1', ['Max'])
 it.addEmployee('Alex')
 it.addEmployee('Max')
 it.printEmpleyessInformation()
-// accounting.employees[2] = 'Manu' //Property 'employees' is private and only accessible within class 'Department'.
 console.log(it)
-
-// const accountingCopy = { name: 'Copy of Accounting', log: accounting.log }
-
-// accountingCopy.log()
