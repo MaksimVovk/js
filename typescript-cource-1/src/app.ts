@@ -18,18 +18,48 @@ class Department {
   }
 
   printEmpleyessInformation () {
+    console.log(this.name)
     console.log(this.employees.length)
     console.log(this.employees)
   }
 }
 
-const accounting = new Department('d1', 'Accounting')
+class ITDepartment extends Department {
+  admins: string[]
 
+  constructor (id: string, admins: string[]) {
+    super(id, 'IT')
+    this.admins = admins
+  }
+}
+
+class AccountingDepartment extends Department {
+  constructor (id: string, private reports: string[]) {
+    super(id, 'Accounting')
+  }
+
+  addReports (text: string) {
+    this.reports = [...this.reports, text]
+  }
+
+  printReports() {
+    console.log(this.reports)
+  }
+}
+
+const accounting = new AccountingDepartment('d2', [])
+const it = new ITDepartment('d1', ['Max'])
+
+console.log(accounting)
 accounting.log()
-accounting.addEmployee('Max')
-accounting.addEmployee('Alex')
+accounting.addReports('Something went wrong!')
+accounting.printReports()
+
+it.addEmployee('Alex')
+it.addEmployee('Alex')
+it.printEmpleyessInformation()
 // accounting.employees[2] = 'Manu' //Property 'employees' is private and only accessible within class 'Department'.
-accounting.printEmpleyessInformation()
+console.log(it)
 
 // const accountingCopy = { name: 'Copy of Accounting', log: accounting.log }
 
