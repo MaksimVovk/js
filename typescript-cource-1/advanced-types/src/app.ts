@@ -58,6 +58,8 @@ function printUnknowEmployee (emp: UnknowEmployee) {
 
 printUnknowEmployee(employee)
 
+console.log('------------------------------------------------------------')
+
 class Car {
   drive () {
     console.log('Driving...')
@@ -89,3 +91,58 @@ function useVehicle (vehicle: Vehicle) {
 
 useVehicle(v1)
 useVehicle(v2)
+
+console.log('------------------------------------------------------------')
+
+interface Bird {
+  type: 'bird'
+  flySpeed: number
+}
+
+interface Horse {
+  type: 'horse'
+  runSpeed: number
+}
+
+class BirdClass implements Bird {
+  type: 'bird'
+  flySpeed: number
+
+  constructor (flySpeed: number) {
+    this.flySpeed = flySpeed
+    this.type = 'bird'
+  }
+}
+
+class HorseClass implements Horse {
+  type: 'horse'
+  runSpeed: number
+
+  constructor (runSpeed: number) {
+    this.runSpeed = runSpeed
+    this.type = 'horse'
+  }
+}
+
+const bird = new BirdClass(30)
+const horse = new HorseClass(60)
+
+type Animal = Bird | Horse
+
+function moveAnimal (animal: Animal) {
+  let speed: number
+
+  switch (animal.type) {
+    case 'bird':
+      speed = animal.flySpeed
+      break
+    case 'horse':
+      speed = animal.runSpeed
+      break
+  }
+
+  console.log(animal.type + ' ' + 'moving at speed: ' + speed)
+}
+
+moveAnimal(bird)
+moveAnimal(horse)
