@@ -57,6 +57,8 @@ const fetchedUserData = {
 
 console.log(fetchedUserData?.job?.title)
 
+
+//Nullish Coalescing
 const userInput = ''
 
 // const stored = userInput || 'Default'
