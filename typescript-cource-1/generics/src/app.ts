@@ -83,3 +83,25 @@ console.log('After remove', textStorage.getItems())
 // objStorage.removeItem({ name: 'Max' })
 
 // console.log(objStorage.getItems())
+
+interface CourseGoal {
+  title: string
+  description: string
+  completeUtil: Date
+}
+
+function createCourseGoal (
+  title: string,
+  description: string,
+  date: Date
+): CourseGoal {
+  let courseGoal: Partial<CourseGoal> = {}
+  courseGoal.title = title
+  courseGoal.description = description
+  courseGoal.completeUtil = date
+
+  return courseGoal as CourseGoal
+}
+
+const names: Readonly<string[]> = ['Max', 'Lena']
+// names.push('Manuel')
