@@ -125,7 +125,7 @@ class HorseClass implements Horse {
 }
 
 const bird = new BirdClass(30)
-const horse = new HorseClass(60)
+const horse = new HorseClass(30)
 
 type Animal = Bird | Horse
 
@@ -146,3 +146,14 @@ function moveAnimal (animal: Animal) {
 
 moveAnimal(bird)
 moveAnimal(horse)
+
+// const userInput = <HTMLInputElement>document.getElementById('user-input')!
+const userInput = document.getElementById('user-input')
+const paragraph = document.getElementById('message-output')! as HTMLParagraphElement
+
+// userInput.value = 'Hi there!'
+paragraph.innerText = 'Paragraph text'
+
+if (userInput) {
+  (userInput as HTMLInputElement).value = 'Hi there!'
+}
