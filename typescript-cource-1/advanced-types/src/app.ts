@@ -48,7 +48,14 @@ function add (n1: Combinable, n2: Combinable) {
 
 const result = add(1,2)
 const result1 = add('Max', ' Vovk')
-console.log(result1.split(' '))
+
+const fetchedUserData = {
+  id: 'u1',
+  name: 'Max',
+  job: { title: 'Developer', description: 'js fill-stack developer' },
+}
+
+console.log(fetchedUserData?.job?.title)
 // type UnknowEmployee = Employee | Admin
 
 // function printUnknowEmployee (emp: UnknowEmployee) {
