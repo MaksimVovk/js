@@ -157,3 +157,12 @@ paragraph.innerText = 'Paragraph text'
 if (userInput) {
   (userInput as HTMLInputElement).value = 'Hi there!'
 }
+
+interface ErrorContainer { //{ email: 'Not a valid email', username: 'Must start with character' }
+  [props: string]: string
+}
+
+const errorBag: ErrorContainer = {
+  email: 'Not a valid email',
+  username: 'Must start with character'
+}
