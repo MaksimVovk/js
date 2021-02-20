@@ -11,14 +11,14 @@
 //   // data.split(' ')
 // })
 
-function merge<T, U>(objA: T, objB: U) {
+function merge<T extends object, U extends object>(objA: T, objB: U) {
   return ({
     ...objA,
     ...objB,
   })
 }
 
-const mergeObject = merge({ name: 'Max' }, { age: 26 })
+const mergeObject = merge({ name: 'Max', hobbies: ['Sport'] }, { age: 26 })
 
-console.log(mergeObject.age)
+console.log(mergeObject)
 
