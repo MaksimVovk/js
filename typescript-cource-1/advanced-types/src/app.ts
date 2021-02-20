@@ -34,6 +34,10 @@ type Numeric = number
 
 type Universal = Combinable & Numeric
 
+function add (n1: number, n2: number): number
+function add (n1: string, n2: string): string
+function add (n1: number, n2: string): string
+function add (n1: string, n2: number): string
 function add (n1: Combinable, n2: Combinable) {
   if (typeof n1 === 'string' || typeof n2 === 'string') {
     return n1.toString() + n2.toString()
@@ -42,127 +46,130 @@ function add (n1: Combinable, n2: Combinable) {
   return n1 + n2
 }
 
-type UnknowEmployee = Employee | Admin
+const result = add(1,2)
+const result1 = add('Max', ' Vovk')
+console.log(result1.split(' '))
+// type UnknowEmployee = Employee | Admin
 
-function printUnknowEmployee (emp: UnknowEmployee) {
-  console.log('Name: ' + emp.name)
+// function printUnknowEmployee (emp: UnknowEmployee) {
+//   console.log('Name: ' + emp.name)
 
-  if ('privileges' in emp) {
-    console.log('Privileges: ' + emp.privileges)
-  }
+//   if ('privileges' in emp) {
+//     console.log('Privileges: ' + emp.privileges)
+//   }
 
-  if ('startDate' in emp) {
-    console.log('startDate: ' + emp.startDate)
-  }
-}
+//   if ('startDate' in emp) {
+//     console.log('startDate: ' + emp.startDate)
+//   }
+// }
 
-printUnknowEmployee(employee)
+// printUnknowEmployee(employee)
 
-console.log('------------------------------------------------------------')
+// console.log('------------------------------------------------------------')
 
-class Car {
-  drive () {
-    console.log('Driving...')
-  }
-}
+// class Car {
+//   drive () {
+//     console.log('Driving...')
+//   }
+// }
 
-class Truck {
-  drive () {
-    console.log('Driving a truck...')
-  }
+// class Truck {
+//   drive () {
+//     console.log('Driving a truck...')
+//   }
 
-  loadCargo (amount: number) {
-    console.log('Loading cargo...' + amount)
-  }
-}
+//   loadCargo (amount: number) {
+//     console.log('Loading cargo...' + amount)
+//   }
+// }
 
-type Vehicle = Car | Truck
+// type Vehicle = Car | Truck
 
-const v1 = new Car
-const v2 = new Truck
+// const v1 = new Car
+// const v2 = new Truck
 
-function useVehicle (vehicle: Vehicle) {
-  vehicle.drive()
+// function useVehicle (vehicle: Vehicle) {
+//   vehicle.drive()
 
-  if ('loadCargo' in vehicle) {
-    vehicle.loadCargo(1000)
-  }
-}
+//   if ('loadCargo' in vehicle) {
+//     vehicle.loadCargo(1000)
+//   }
+// }
 
-useVehicle(v1)
-useVehicle(v2)
+// useVehicle(v1)
+// useVehicle(v2)
 
-console.log('------------------------------------------------------------')
+// console.log('------------------------------------------------------------')
 
-interface Bird {
-  type: 'bird'
-  flySpeed: number
-}
+// interface Bird {
+//   type: 'bird'
+//   flySpeed: number
+// }
 
-interface Horse {
-  type: 'horse'
-  runSpeed: number
-}
+// interface Horse {
+//   type: 'horse'
+//   runSpeed: number
+// }
 
-class BirdClass implements Bird {
-  type: 'bird'
-  flySpeed: number
+// class BirdClass implements Bird {
+//   type: 'bird'
+//   flySpeed: number
 
-  constructor (flySpeed: number) {
-    this.flySpeed = flySpeed
-    this.type = 'bird'
-  }
-}
+//   constructor (flySpeed: number) {
+//     this.flySpeed = flySpeed
+//     this.type = 'bird'
+//   }
+// }
 
-class HorseClass implements Horse {
-  type: 'horse'
-  runSpeed: number
+// class HorseClass implements Horse {
+//   type: 'horse'
+//   runSpeed: number
 
-  constructor (runSpeed: number) {
-    this.runSpeed = runSpeed
-    this.type = 'horse'
-  }
-}
+//   constructor (runSpeed: number) {
+//     this.runSpeed = runSpeed
+//     this.type = 'horse'
+//   }
+// }
 
-const bird = new BirdClass(30)
-const horse = new HorseClass(30)
+// const bird = new BirdClass(30)
+// const horse = new HorseClass(30)
 
-type Animal = Bird | Horse
+// type Animal = Bird | Horse
 
-function moveAnimal (animal: Animal) {
-  let speed: number
+// function moveAnimal (animal: Animal) {
+//   let speed: number
 
-  switch (animal.type) {
-    case 'bird':
-      speed = animal.flySpeed
-      break
-    case 'horse':
-      speed = animal.runSpeed
-      break
-  }
+//   switch (animal.type) {
+//     case 'bird':
+//       speed = animal.flySpeed
+//       break
+//     case 'horse':
+//       speed = animal.runSpeed
+//       break
+//   }
 
-  console.log(animal.type + ' ' + 'moving at speed: ' + speed)
-}
+//   console.log(animal.type + ' ' + 'moving at speed: ' + speed)
+// }
 
-moveAnimal(bird)
-moveAnimal(horse)
+// moveAnimal(bird)
+// moveAnimal(horse)
 
-// const userInput = <HTMLInputElement>document.getElementById('user-input')!
-const userInput = document.getElementById('user-input')
-const paragraph = document.getElementById('message-output')! as HTMLParagraphElement
+// // const userInput = <HTMLInputElement>document.getElementById('user-input')!
+// const userInput = document.getElementById('user-input')
+// const paragraph = document.getElementById('message-output')! as HTMLParagraphElement
 
-// userInput.value = 'Hi there!'
-paragraph.innerText = 'Paragraph text'
+// // userInput.value = 'Hi there!'
+// paragraph.innerText = 'Paragraph text'
 
-if (userInput) {
-  (userInput as HTMLInputElement).value = 'Hi there!'
-}
+// if (userInput) {
+//   (userInput as HTMLInputElement).value = 'Hi there!'
+// }
 
-interface ErrorContainer { //{ email: 'Not a valid email', username: 'Must start with character' }
-  [props: string]: string
-}
+// interface ErrorContainer { //{ email: 'Not a valid email', username: 'Must start with character' }
+//   [props: string]: string
+// }
 
-const errorBag: ErrorContainer = {
-  email: 'Not a valid email',
-  username: 'Must start with character'
-}
+// const errorBag: ErrorContainer = {
+//   email: 'Not a valid email',
+//   username: 'Must start with character'
+// }
