@@ -8,21 +8,29 @@ function Logger (logString: string) {
 
 function WithTemplate (template: string, hookId: string) {
   console.log('Template factory')
-  return function (constructor: any) {
-    console.log('Rendering template')
-    const el = document.getElementById(hookId)
-    const p = new constructor()
+  return function<T extends { new (...args: any[]): { name: string } }>(
+    originalConstructor: T
+  ) {
+    return class extends originalConstructor {
+      constructor (..._: any[]) {
+        super()
+        console.log('Rendering template')
+        const el = document.getElementById(hookId)
+        // const p = new originalConstructor()
 
-    if (el) {
-      el.innerHTML = template
-      el.querySelector('h1')!.textContent = p.name
+        if (el) {
+          el.innerHTML = template
+          el.querySelector('h1')!.textContent = this.name
+        }
+
+      }
     }
   }
 }
 
 // @Logger('LOGGING - PERSON')
 @Logger('LOGGER')
-@WithTemplate('<h1>My Person Object</h2>', 'app')
+@WithTemplate('<h1>My Person Object</h1>', 'app')
 class Person {
   name = 'Max'
 
