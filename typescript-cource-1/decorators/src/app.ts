@@ -131,17 +131,17 @@ interface ValidatorConfig {
 
 const registeredValidators: ValidatorConfig = {}
 
-function Required (target: any, propsName: string) {
+function Required (target: any, propName: string) {
   registeredValidators[target.constructor.name] = {
     ...registeredValidators[target.constructor.name],
-    [propsName]: ['required']
+    [propName]: [...registeredValidators[target.constructor.name][propName], 'required']
   }
 }
 
-function PositiveNamber (target: any, propsName: string) {
+function PositiveNamber (target: any, propName: string) {
   registeredValidators[target.constructor.name] = {
     ...registeredValidators[target.constructor.name],
-    [propsName]: ['positive']
+    [propName]: [...registeredValidators[target.constructor.name][propName], 'positive']
   }
 }
 
