@@ -123,8 +123,57 @@ const p = new Print()
 
 button.addEventListener('click', p.showMessage)
 
+interface ValidatorConfig {
+  [property: string]: {
+    [validationProperty: string]: string[]
+  }
+}
+
+const registeredValidators: ValidatorConfig = {}
+
+function Required (target: any, propsName: string) {
+  registeredValidators[target.constructor.name] = {
+    ...registeredValidators[target.constructor.name],
+    [propsName]: ['required']
+  }
+}
+
+function PositiveNamber (target: any, propsName: string) {
+  registeredValidators[target.constructor.name] = {
+    ...registeredValidators[target.constructor.name],
+    [propsName]: ['positive']
+  }
+}
+
+function validate (obj: any) {
+  const objValidatorConfig = registeredValidators[obj.constructor.name]
+
+  if (!objValidatorConfig) {
+    return true
+  }
+
+  let isValid = true
+
+  for (const prop in objValidatorConfig) {
+    for (const validator of objValidatorConfig[prop]) {
+      switch (validator) {
+        case 'required':
+          isValid = isValid && !!obj[prop]
+          break
+        case 'positive':
+          isValid = isValid && obj[prop] > 0
+          break
+      }
+    }
+  }
+
+  return isValid
+}
+
 class Course {
+  @Required
   title: string
+  @PositiveNamber
   price: number
 
   constructor (t: string, p: number) {
@@ -144,6 +193,11 @@ courseForm.addEventListener('submit', event => {
   const price = +priceEl.value
 
   const createdCourse = new Course(title, price)
+
+  if (!validate(createdCourse)) {
+    alert('Invalid input, please try again!')
+    return
+  }
 
   console.log(createdCourse)
 })
