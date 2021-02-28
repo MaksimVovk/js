@@ -44,10 +44,44 @@ class ProjectInput {
     this.hostElement.insertAdjacentElement('afterbegin', this.element)
   }
 
+  private clearInput () {
+    const clearElement = (element: HTMLInputElement) => element.value = ''
+
+    clearElement(this.titleInputElement)
+    clearElement(this.descriptionInputElement)
+    clearElement(this.peopleInputElement)
+  }
+
   @Autobind
   private submitHandler (event: Event){
     event.preventDefault()
-    console.log(this.titleInputElement.value)
+    const userInput = this.gatherUserInput()
+
+    if (Array.isArray(userInput)) {
+      const [title, description, people] = userInput
+
+      console.log(`title: ${title}; description: ${description}; people: ${people}`)
+      this.clearInput()
+    }
+  }
+
+  private gatherUserInput (): [string, string, number] | void {
+    const enteredTitle = this.titleInputElement.value
+    const enteredDescriptorTitle = this.descriptionInputElement.value
+    const enteredPeopleTitle = this.peopleInputElement.value
+
+    const validate = (val: any) => val.trim().length === 0
+    const validateCondition =
+      validate(enteredTitle) ||
+      validate(enteredDescriptorTitle) ||
+      validate(enteredPeopleTitle)
+
+    if (validateCondition) {
+      alert('Invalid input')
+      return
+    } else {
+      return [enteredTitle, enteredDescriptorTitle, +enteredPeopleTitle]
+    }
   }
 
   private configure () {
