@@ -32,7 +32,16 @@ function searchAddressHandler (event: Event) {
     }
 
     const coordinates = r.data?.results[0].geometry.location
-    console.log(coordinates)
+    const map = new google.maps.Map(
+      document.getElementById('map') as HTMLElement, {
+      center: coordinates,
+      zoom: 16,
+    })
+
+    new google.maps.Marker({
+      position: coordinates,
+      map: map,
+    })
   })
   .catch(e => {
     alert(e.message)
