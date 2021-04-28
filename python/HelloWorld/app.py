@@ -1,7 +1,14 @@
+# Receiving Input
+name = input('what is your name? ')
+color = input('what is your favorite color? ')
+print('%s likes %s' % (name, color))
+
+# Variables
 name = 'John Smith'
 age = 20
 isNewPatient = False
 
+# If Statements
 if name == 'John Smith':
     print('It is John Smith')
 else:
@@ -18,3 +25,4 @@ if isNewPatient:
     print('He is a new patient')
 else:
     print('He is a current patient')
+
