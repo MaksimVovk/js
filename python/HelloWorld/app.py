@@ -1,3 +1,19 @@
+# Type Conversion
+from datetime import date
+
+today = date.today()
+YEAR = today.year
+year = input('Birth year: ')
+print(type(year))
+age = YEAR - int(year)
+print(type(age))
+print('Your age is %d'% age)
+# ---------
+K = 2.2046
+pounds = input('What is your weight? ')
+kilo = float(pounds)/K
+print('Kilograms: %s' % kilo)
+
 # Receiving Input
 name = input('what is your name? ')
 color = input('what is your favorite color? ')
