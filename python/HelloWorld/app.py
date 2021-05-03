@@ -1,6 +1,20 @@
 import sys
-# Dictionaries exercise
+# Emoji Converter
+emoji_dictionary = {
+    ':)': '😀',
+    ':(': '🙁',
+}
 
+message = input('> ')
+message_list = message.split(' ')
+
+for item in message_list:
+    element = emoji_dictionary.get(item, item)
+    index = message_list.index(item)
+    message_list[index] = element
+print(' '.join(message_list))
+sys.exit()
+# Dictionaries exercise
 phone = input('Phone: ')
 dictionary = {
     "1": 'One',
