@@ -1,4 +1,12 @@
 import sys
+# List Methods exercise
+numbers = [1, 2, 3, 4, 4, 4, 5, 4, 3]
+numbers2 = []
+for number in numbers:
+    if number not in numbers2:
+        numbers2.append(number)
+print(numbers2)
+sys.exit()
 # List Methods
 
 numbers = [5, 2, 1, 7, 7, 4]
