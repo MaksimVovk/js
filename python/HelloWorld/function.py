@@ -1,5 +1,4 @@
 import sys
-
 # Exceptions
 try:
     age = int(input('Age: '))
