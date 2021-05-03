@@ -1,4 +1,10 @@
 import sys
+# Tuples
+# immutable list
+numbers = (1, 2, 3)
+numbers[0] = 20
+print(numbers[0])
+sys.exit()
 # List Methods exercise
 numbers = [1, 2, 3, 4, 4, 4, 5, 4, 3]
 numbers2 = []
