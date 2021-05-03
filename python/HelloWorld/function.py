@@ -9,5 +9,5 @@ def greet_user(first_name="Gomer", last_name="Simpson"):
 
 print('Start')
 greet_user()
-greet_user('John')
+greet_user(first_name="John", last_name='Smith')
 print('Finish')
