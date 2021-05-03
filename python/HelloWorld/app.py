@@ -1,4 +1,17 @@
 import sys
+# 2D Lists
+
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]
+
+for row in matrix:
+    for item in row:
+        print(item)
+sys.exit()
+
 # List
 numbers = [1, 2, 3, 10, 4, 5]
 max_number = numbers[0]
