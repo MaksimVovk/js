@@ -1,4 +1,20 @@
 import sys
+# Nested Loops exercise
+for k in range(1):
+    for i in range(2):
+        for j in range(1):
+            print('xxxxx')
+        print('xx')
+    print('xx')
+
+for i in [5, 2, 5, 2, 2]:
+    print('x' * i)
+sys.exit()
+# Nested Loops
+for x in range(4):
+    for y in range(3):
+        print(f'({x}, {y})')
+sys.exit()
 # For Loops
 prices = [10, 20, 30]
 sum = 0
