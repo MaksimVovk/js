@@ -1,4 +1,20 @@
 import sys
+# For Loops
+prices = [10, 20, 30]
+sum = 0
+for price in prices:
+    sum = sum + price
+print('Total: ', sum)
+for item in range(10, 20, 3):
+    print('range 10 - 20 with step 3', item)
+
+# range(10), range(10, 20)
+for item in range(10, 20):
+    print('range 10 - 20', item)
+
+for item in ['Max', 'Lena', 'Alex']:
+    print(item)
+sys.exit()
 # Building the Car Game
 is_end = False
 current_command = 'stop'
