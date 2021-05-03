@@ -1,18 +1,28 @@
 import sys
 # Building the Car Game
 is_end = False
-
+current_command = 'stop'
 while not is_end:
-    command = input('>')
-    if command.lower() == 'help':
-        print('''start - to start the car
+    command = input('>').lower()
+    if command == 'help':
+        print("""
+start - to start the car
 stop - to stop the car
-quit - to exit''')
-    elif command.lower() == 'start':
-        print('Car started...Ready to go')
-    elif command.lower() == 'stop':
-        print('Car stopped')
-    elif command.lower() == 'quit':
+quit - to exit
+        """)
+    elif command == 'start':
+        if current_command == command:
+            print('The car is already started')
+        else:
+            current_command = command
+            print('Car started...Ready to go')
+    elif command == 'stop':
+        if current_command == command:
+            print('The car is already stopped')
+        else:
+            current_command = command
+            print('Car stopped')
+    elif command == 'quit':
         is_end = True
     else:
         print('I don\'t understand that...')
