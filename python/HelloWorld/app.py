@@ -1,10 +1,44 @@
 import sys
+# Dictionaries exercise
 
+phone = input('Phone: ')
+dictionary = {
+    "1": 'One',
+    "2": 'Two',
+    "3": 'Three',
+    "4": 'Four',
+    "5": 'Five',
+    "6": 'Six',
+    "7": 'Seven',
+    "8": 'Eight',
+    "9": 'Nine',
+    "0": 'Zero',
+}
+result = []
+for d in phone:
+    result.append(dictionary.get(d, "!"))
+if not len(result):
+    print('Phone Number is invalid')
+else:
+    print(' '.join(result))
+sys.exit()
+# Dictionaries
+customers = {
+    "name": "John Smith",
+    "age": 30,
+    "is_verified": True
+}
+name = "name"
+customers[name] = 'Jack Smith'
+print(customers[name])
+# print(customers["birthdate"]) # has an error
+print(customers.get("birthdate"))
+customers["birthdate"] = 'Jan 1 1980'
+print(customers)
+sys.exit()
 # Unpacking
 coordinates = (1, 2, 3)
-
 x, y, z = coordinates
-
 print(x, y, z)
 sys.exit()
 # Tuples
