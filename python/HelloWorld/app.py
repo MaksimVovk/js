@@ -1,4 +1,25 @@
 import sys
+# Comparison Operators exercise
+name = input('Enter your name ')
+message = 'name looks good'
+
+if len(name) < 3:
+    message = 'name must be at least 3 characters'
+elif len(name) > 50:
+    message = 'name can be a maximum of 50 characters'
+else:
+    message = message
+
+print(message)
+sys.exit()
+# Comparison Operators
+temperature = 30
+# >, >=, <, <=, ==, !=
+if temperature > 30:
+    print("It's a hot day")
+else:
+    print("It's not a hot day")
+sys.exit()
 # Logical Operators
 has_high_income = True
 has_good_credit = True
