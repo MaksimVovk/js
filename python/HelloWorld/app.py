@@ -1,6 +1,28 @@
 import sys
-# 2D Lists
+# List Methods
 
+numbers = [5, 2, 1, 7, 7, 4]
+numbers.append(20)
+print('append', numbers)
+numbers.insert(0, 10)
+print('insert', numbers)
+numbers.remove(5)
+print('remove', numbers)
+# numbers.clear()
+# print('clear', numbers)
+numbers.pop()
+print('pop', numbers)
+print('index of element', numbers.index(1))
+print('50 in numbers', 50 in numbers)
+print('count of number 7:', numbers.count(7))
+numbers.sort()
+print('sort list', numbers)
+numbers.reverse()
+print('reverse list', numbers)
+numbers2 = numbers.copy()
+print('copy list', numbers2)
+sys.exit()
+# 2D Lists
 matrix = [
     [1, 2, 3],
     [4, 5, 6],
