@@ -1,4 +1,18 @@
 import sys
+
+# Exceptions
+try:
+    age = int(input('Age: '))
+    income = 2000
+    risk = income/age
+    print(age)
+except ZeroDivisionError:
+    print('Age cannot be 0')
+except ValueError:
+    print('Invalid value')
+
+
+sys.exit()
 # Return Statement
 def square(number):
     return number * number
