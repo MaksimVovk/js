@@ -1,4 +1,14 @@
 import sys
+# String Methods
+course = 'Python for Beginners'
+print('Length: ', len(course))
+print('Upper case: ', course.upper())
+print('Lower case: ', course.lower())
+print('Find index: ', course.find('P'))
+print('Find index: ', course.lower().find('p'))
+print('Replace: ', course.replace('Beginners', 'Absolute Beginners'))
+print('Expression: ', 'Python' in course)
+sys.exit()
 # Formatted Strings
 first = 'Max'
 last = 'Vovk'
