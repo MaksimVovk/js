@@ -1,7 +1,17 @@
 import sys
 
-# Arithmetic Operations
+# Operator Precedence
 
+x = 10 + 3 * 2
+print(x)
+x = 10 + 3 * 2 ** 2
+print(x)
+x = (10 + 3) * 2 ** 2
+print(x)
+x = (2 + 3) * 10 - 3
+print(x)
+sys.exit()
+# Arithmetic Operations
 print('Addition: 1 + 1 = ', 1 + 1)
 print('Subtraction: 2 - 1 = ', 2 - 1)
 print('Multiplication: 2 * 2 = ', 2 * 2)
@@ -10,6 +20,7 @@ print('Floor division: 10 / 3 = ', 10 / 3)
 print('Modulus: 10 % 3 = ', 10 % 3)
 print('Exponentiation: 10 ** 3 = ', 10 ** 3)
 sys.exit()
+
 # String Methods
 course = 'Python for Beginners'
 print('Length: ', len(course))
