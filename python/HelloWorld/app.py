@@ -2,6 +2,7 @@ import sys
 # String Methods
 course = 'Python for Beginners'
 print('Length: ', len(course))
+print('Tittle: ', course.title())
 print('Upper case: ', course.upper())
 print('Lower case: ', course.lower())
 print('Find index: ', course.find('P'))
