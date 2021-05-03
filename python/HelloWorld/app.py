@@ -1,4 +1,14 @@
 import sys
+# Weight Converter Program
+
+weight = input('Weight: ')
+weight_type = input('(L)bs or (K)g: ')
+
+if weight_type.lower() == 'l':
+    print(f'Yor are: {float(weight) * 0.45} kilo')
+else:
+    print(f'You are: {float(weight) / 0.45} pounds')
+sys.exit()
 # Comparison Operators exercise
 name = input('Enter your name ')
 message = 'name looks good'
