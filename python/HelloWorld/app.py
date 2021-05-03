@@ -1,4 +1,13 @@
 import sys
+# Formatted Strings
+first = 'Max'
+last = 'Vovk'
+
+message = first + ' [' + last + '] is coder'
+msg = f'{first} [{last}] is coder'
+print(message)
+print(msg)
+sys.exit()
 
 # Strings
 course = "Python for \"Beginners\""
@@ -16,7 +25,6 @@ print('Second char from the end - ', course[-2])
 print('Char range from 0 to 3 - ', course[0:3])
 name = 'Jennifer'
 print(name[1:-1])
-sys.exit()
 # Type Conversion
 from datetime import date
 
