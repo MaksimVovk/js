@@ -1,4 +1,17 @@
 import sys
+# If Statements exercise
+price = 10 ** 6
+has_good_credit = True
+discount = 0
+if has_good_credit:
+    discount = 10
+else:
+    discount = 20
+
+total_price = (100 - discount) / 100 * price
+
+print(f'Your discount: {discount}, your price: {total_price}')
+sys.exit()
 # If Statements
 is_hot = False
 is_cold = True
