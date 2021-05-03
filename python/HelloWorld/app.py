@@ -1,3 +1,22 @@
+import sys
+
+# Strings
+course = "Python for \"Beginners\""
+message = '''
+Hi Max!
+
+Thank you,
+The support team!  
+'''
+print(message)
+print(course)
+print('First char - ', course[0])
+print('Last char - ', course[-1])
+print('Second char from the end - ', course[-2])
+print('Char range from 0 to 3 - ', course[0:3])
+name = 'Jennifer'
+print(name[1:-1])
+sys.exit()
 # Type Conversion
 from datetime import date
 
