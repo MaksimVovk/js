@@ -1,7 +1,14 @@
 import sys
 
+#Math Functions
+import math
+x = 2.9
+print(round(x))
+print(abs(-x))
+print(math.ceil(x))
+print(math.floor(x))
+sys.exit()
 # Operator Precedence
-
 x = 10 + 3 * 2
 print(x)
 x = 10 + 3 * 2 ** 2
@@ -11,6 +18,7 @@ print(x)
 x = (2 + 3) * 10 - 3
 print(x)
 sys.exit()
+
 # Arithmetic Operations
 print('Addition: 1 + 1 = ', 1 + 1)
 print('Subtraction: 2 - 1 = ', 2 - 1)
