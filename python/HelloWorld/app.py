@@ -1,4 +1,14 @@
 import sys
+# List
+numbers = [1, 2, 3, 10, 4, 5]
+max_number = numbers[0]
+
+for number in numbers:
+    if number > max_number:
+        max_number = number
+
+print(max_number)
+sys.exit()
 # Nested Loops exercise
 for k in range(1):
     for i in range(2):
