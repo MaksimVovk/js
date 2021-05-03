@@ -1,4 +1,17 @@
 import sys
+# Building a Guessing Game
+
+num = 9
+i = 0
+while i < 3:
+    input_number = int(input('Guess: '))
+    i = i + 1
+    if input_number == num:
+        print('You win!')
+        break
+else:
+    print('Sorry you failed')
+sys.exit()
 # While Loops
 i = 1
 while i <= 5:
