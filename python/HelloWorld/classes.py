@@ -1,9 +1,35 @@
 import sys
+# Inheritance
+class Animall:
+    def walk(self):
+        print('Walk')
 
+class Dog(Animall):
+    def bark(self):
+        print('bark')
+
+
+class Cat(Animall):
+    def be_annoying(self):
+        print('be annoying')
+
+
+
+dog = Dog()
+cat = Cat()
+
+dog.walk()
+dog.bark()
+
+cat.walk()
+cat.be_annoying()
+
+sys.exit()
+# Constructors exercise
 class Person:
     def __init__(self, name):
         self.name = name
-    
+
     def talk(self):
         print(f'{self.name} is talk now')
 
