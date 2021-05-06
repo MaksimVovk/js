@@ -1,3 +1,18 @@
+import sys
+# Working with Directories
+from pathlib import Path
+
+path = Path()
+for file in path.glob('*.py'):
+  print(file)
+
+sys.exit()
+
+path = Path("emails")
+print(path.mkdir())
+print(path.exists())
+print(path.rmdir())
+sys.exit()
 # Generating Random Values
 import random
 
@@ -19,4 +34,3 @@ numbers = [1,2,4,5]
 newDice = Dice(numbers)
 
 newDice.roll()
-
