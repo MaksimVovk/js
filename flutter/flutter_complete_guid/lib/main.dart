@@ -51,16 +51,16 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Question(questions[_questionIndex]),
-            Answer(
-              selectHandler: _answerQuestion
+            Question(
+              questions[_questionIndex]['question'],
             ),
-            Answer(
-              selectHandler: _answerQuestion
-            ),
-            Answer(
-              selectHandler: _answerQuestion
-            ),
+            ...(questions[_questionIndex]['answers'] as List<String>)
+            .map((it) {
+              return Answer(
+                answer: it,
+                selectHandler: _answerQuestion
+              );
+            }).toList(),
           ],
         ),
       ),
