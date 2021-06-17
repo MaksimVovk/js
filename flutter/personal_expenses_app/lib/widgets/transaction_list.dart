@@ -10,54 +10,53 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      child: SingleChildScrollView(
-        child: Column(
-          children: userTransaction.map((tx) {
-            return Card(
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    child: Text(
-                      'A: \$${tx.amount}',
-                      style: TextStyle(
-                        color: Colors.purple,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.purple,
-                        width: 2,
-                      )
+      child: ListView.builder(
+        itemBuilder: (ctx, index) {
+          return Card(
+            child: Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  child: Text(
+                    'A: \$${userTransaction[index].amount}',
+                    style: TextStyle(
+                      color: Colors.purple,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        tx.title,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.purple,
+                      width: 2,
+                    )
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      userTransaction[index].title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                       ),
-                      Text(
-                        DateFormat('yyyy-MM-dd H:m').format(tx.date),
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 14
-                        ),
+                    ),
+                    Text(
+                      DateFormat('yyyy-MM-dd H:m').format(userTransaction[index].date),
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14
                       ),
-                    ],
-                  )
-                ],
-              )
-            );
-          }).toList(),
-        ),
+                    ),
+                  ],
+                )
+              ],
+            )
+          );
+        },
+        itemCount: userTransaction.length,
       ),
     );
   }
