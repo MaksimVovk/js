@@ -10,51 +10,65 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      child: ListView.builder(
-        itemBuilder: (ctx, index) {
-          return Card(
-            child: Row(
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  child: Text(
-                    'A: \$${userTransaction[index].amount.toStringAsFixed(2)}',
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Theme.of(context).primaryColor,
-                      width: 2,
-                    )
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      userTransaction[index].title,
-                      style: Theme.of(context).textTheme.title,
-                    ),
-                    Text(
-                      DateFormat('yyyy-MM-dd H:m').format(userTransaction[index].date),
+      child: userTransaction.isEmpty
+        ? Column(
+          children: <Widget>[
+            Text(
+              'No transactions!',
+              style: Theme.of(context).textTheme.title,
+            ),
+            SizedBox(height: 10),
+            Container(
+              height: 200,
+              child: Image.asset('assets/images/waiting.png', fit: BoxFit.cover)
+            ),
+          ]
+        )
+        : ListView.builder(
+          itemBuilder: (ctx, index) {
+            return Card(
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    child: Text(
+                      'A: \$${userTransaction[index].amount.toStringAsFixed(2)}',
                       style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
                       ),
                     ),
-                  ],
-                )
-              ],
-            )
-          );
-        },
-        itemCount: userTransaction.length,
-      ),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Theme.of(context).primaryColor,
+                        width: 2,
+                      )
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        userTransaction[index].title,
+                        style: Theme.of(context).textTheme.title,
+                      ),
+                      Text(
+                        DateFormat('yyyy-MM-dd H:m').format(userTransaction[index].date),
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 14
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              )
+            );
+          },
+          itemCount: userTransaction.length,
+        ),
     );
   }
 }
