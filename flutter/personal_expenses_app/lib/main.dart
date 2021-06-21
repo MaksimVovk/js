@@ -20,7 +20,10 @@ class MyApp extends StatelessWidget {
             fontFamily: 'OpenSans',
             fontWeight: FontWeight.bold,
             fontSize: 18,
-          )
+          ),
+          button: TextStyle(
+              color: Colors.white
+            )
         ),
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
@@ -28,6 +31,10 @@ class MyApp extends StatelessWidget {
               fontFamily: 'OpenSans',
               fontSize: 20,
               fontWeight: FontWeight.bold
+            ),
+            button: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             )
           )
         )
@@ -69,10 +76,10 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount) {
+  void _addNewTransaction(String txTitle, double txAmount, DateTime txDate) {
     final newTx = Transaction(
       id: DateTime.now().toString(),
-      date: DateTime.now(),
+      date: txDate,
       title: txTitle,
       amount: txAmount,
     );
