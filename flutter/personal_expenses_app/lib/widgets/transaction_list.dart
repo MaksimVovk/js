@@ -27,43 +27,28 @@ class TransactionList extends StatelessWidget {
         : ListView.builder(
           itemBuilder: (ctx, index) {
             return Card(
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    child: Text(
-                      'A: \$${userTransaction[index].amount.toStringAsFixed(2)}',
-                      style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Theme.of(context).primaryColor,
-                        width: 2,
-                      )
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        userTransaction[index].title,
-                        style: Theme.of(context).textTheme.title,
-                      ),
-                      Text(
-                        DateFormat('yyyy-MM-dd H:m').format(userTransaction[index].date),
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 14
-                        ),
-                      ),
-                    ],
+              elevation: 5,
+              margin: EdgeInsets.symmetric(
+                vertical: 8,
+                horizontal: 5,
+              ),
+              child: ListTile(
+                leading: CircleAvatar(
+                  radius: 30,
+                  child: Padding(
+                    padding: EdgeInsets.all(6),
+                    child: FittedBox(
+                      child: Text('\$${userTransaction[index].amount}'),
+                    )
                   )
-                ],
+                ),
+                title: Text(
+                  userTransaction[index].title,
+                  style: Theme.of(context).textTheme.title,
+                ),
+                subtitle: Text(
+                  DateFormat.yMMMd().format(userTransaction[index].date),
+                ),
               )
             );
           },
