@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton:
         FloatingActionButton(
           child: Icon(Icons.add),
-          onPressed: () {},
+          onPressed: () => _startAddNewTransaction(context),
         ),
     );
   }
