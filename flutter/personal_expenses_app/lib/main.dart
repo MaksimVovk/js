@@ -75,6 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // ),
   ];
 
+  bool _chart = false;
+
   List<Transaction> get _resentTransactions {
     return _userTransaction.where((tx) {
       return tx.date.isAfter(
@@ -139,6 +141,42 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
 
+    final chartWidget = Container(
+      height: (
+        MediaQuery.of(context).size.height
+        - appBar.preferredSize.height
+        - MediaQuery.of(context).padding.top
+      ) * 0.25,
+      child: Chart(_resentTransactions),
+    );
+
+    final transactionListWidget = Container(
+      height: (
+        MediaQuery.of(context).size.height
+        - appBar.preferredSize.height
+        - MediaQuery.of(context).padding.top
+      ) * 0.75,
+      child: TransactionList(
+        userTransaction: _userTransaction,
+        deleteTransaction: _deleteTransaction,
+      ),
+    );
+
+    final switchWidget = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('Show cart'),
+        Switch(
+          value: _chart,
+          onChanged:  (val) {
+            setState(() {
+              _chart = val;
+            });
+          },
+        ),
+      ],
+    );
+
     return Scaffold(
       appBar: appBar,
       body:
@@ -147,25 +185,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              height: (
-                MediaQuery.of(context).size.height
-                - appBar.preferredSize.height
-                - MediaQuery.of(context).padding.top
-              ) * 0.25,
-              child: Chart(_resentTransactions),
-            ),
-            Container(
-              height: (
-                MediaQuery.of(context).size.height
-                - appBar.preferredSize.height
-                - MediaQuery.of(context).padding.top
-              ) * 0.75,
-              child: TransactionList(
-                userTransaction: _userTransaction,
-                deleteTransaction: _deleteTransaction,
-              ),
-            ),
+            switchWidget,
+            _chart
+              ? chartWidget
+              : transactionListWidget
           ],
         ),
       ),
