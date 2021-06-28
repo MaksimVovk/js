@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -93,10 +96,15 @@ class _NewTransactionState extends State<NewTransaction> {
                         style: TextStyle(color: Theme.of(context).primaryColor)
                       ),
                     ),
-                    TextButton(
-                      onPressed: _presentDatePicker,
-                      child: Text('Choose Date'),
-                    ),
+                    Platform.isIOS
+                      ? CupertinoButton(
+                        onPressed: _presentDatePicker,
+                        child: Text('Choose Date'),
+                      )
+                      : TextButton(
+                        onPressed: _presentDatePicker,
+                        child: Text('Choose Date'),
+                      ),
                   ],
                 ),
               ),

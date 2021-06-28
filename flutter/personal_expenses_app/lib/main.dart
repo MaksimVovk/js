@@ -183,7 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final switchWidget = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Show cart'),
+        Text('Show cart', style: Theme.of(context).textTheme.title),
         Switch.adaptive(
           activeColor: Theme.of(context).accentColor,
           value: _chart,
