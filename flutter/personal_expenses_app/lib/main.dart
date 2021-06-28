@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import './widgets/chart.dart';
@@ -137,7 +138,18 @@ class _MyHomePageState extends State<MyHomePage> {
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
     final isIOS = Platform.isIOS;
 
-    final appBar = AppBar(
+    final PreferredSizeWidget appBar = isIOS ? CupertinoNavigationBar(
+      middle: Text('Flutter App'),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          GestureDetector(
+            child: Icon(CupertinoIcons.add),
+            onTap: () => _startAddNewTransaction(context)
+          )
+        ],
+      ),
+    ) : AppBar(
       title: Text('Flutter App'),
       actions: <Widget>[
         IconButton(
@@ -184,10 +196,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
 
-    return Scaffold(
-      appBar: appBar,
-      body:
-      SingleChildScrollView(
+    final pageBody = SafeArea(
+      child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -200,15 +210,25 @@ class _MyHomePageState extends State<MyHomePage> {
               : transactionListWidget
           ],
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: isIOS
-        ? Container()
-        : FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () => _startAddNewTransaction(context),
-        ),
+      )
     );
+
+    return isIOS
+      ? CupertinoPageScaffold(
+        child: pageBody,
+        navigationBar: appBar,
+      )
+      : Scaffold(
+        appBar: appBar,
+        body: pageBody,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: isIOS
+          ? Container()
+          : FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () => _startAddNewTransaction(context),
+          ),
+      );
   }
 }
 
