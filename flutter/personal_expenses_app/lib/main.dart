@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import './widgets/chart.dart';
 
 import './widgets/transaction_list.dart';
@@ -132,6 +131,36 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  List<Widget> _buildLandscapeContent (Widget transactionListWidget) {
+    return [Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('Show cart', style: Theme.of(context).textTheme.title),
+        Switch.adaptive(
+          activeColor: Theme.of(context).accentColor,
+          value: _chart,
+          onChanged:  (val) {
+            setState(() {
+              _chart = val;
+            });
+          },
+        ),
+      ],
+    ), transactionListWidget];
+  }
+
+  List<Widget> _buildPortretContent (MediaQueryData mediaQuery, AppBar appBar, bool isLandscape, Widget transactionListWidget) {
+    return [Container(
+      height: (
+        mediaQuery.size.height
+        - appBar.preferredSize.height
+        - mediaQuery.padding.top
+      ) * (isLandscape ? 0.7 : 0.3),
+      child: Chart(_resentTransactions),
+    ), transactionListWidget];
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -159,15 +188,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
 
-    final chartWidget = Container(
-      height: (
-        mediaQuery.size.height
-        - appBar.preferredSize.height
-        - mediaQuery.padding.top
-      ) * (isLandscape ? 0.7 : 0.3),
-      child: Chart(_resentTransactions),
-    );
-
     final transactionListWidget = Container(
       height: (
         mediaQuery.size.height
@@ -180,34 +200,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
 
-    final switchWidget = Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text('Show cart', style: Theme.of(context).textTheme.title),
-        Switch.adaptive(
-          activeColor: Theme.of(context).accentColor,
-          value: _chart,
-          onChanged:  (val) {
-            setState(() {
-              _chart = val;
-            });
-          },
-        ),
-      ],
-    );
-
     final pageBody = SafeArea(
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            if (isLandscape) switchWidget,
-            if (!isLandscape) chartWidget,
-            if (!isLandscape) transactionListWidget,
-            if (isLandscape) _chart
-              ? chartWidget
-              : transactionListWidget
+            if (isLandscape) ..._buildLandscapeContent(transactionListWidget),
+            if (!isLandscape) ..._buildPortretContent(mediaQuery, appBar, isLandscape, transactionListWidget),
           ],
         ),
       )
