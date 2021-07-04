@@ -160,14 +160,14 @@ class _MyHomePageState extends State<MyHomePage> {
     ), transactionListWidget];
   }
 
+  Widget _buildAppBar(bool isIOS) {
+    return isIOS
+      ? _buildCupertinoNavigationBar()
+      : _buildMaterialAppBar();
+  }
 
-  @override
-  Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final isLandscape = mediaQuery.orientation == Orientation.landscape;
-    final isIOS = Platform.isIOS;
-
-    final PreferredSizeWidget appBar = isIOS ? CupertinoNavigationBar(
+  Widget _buildCupertinoNavigationBar() {
+    return CupertinoNavigationBar(
       middle: Text('Flutter App'),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
@@ -178,7 +178,11 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-    ) : AppBar(
+    );
+  }
+
+  Widget _buildMaterialAppBar() {
+    return AppBar(
       title: Text('Flutter App'),
       actions: <Widget>[
         IconButton(
@@ -187,7 +191,15 @@ class _MyHomePageState extends State<MyHomePage> {
         )
       ],
     );
+  }
 
+  @override
+  Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final isLandscape = mediaQuery.orientation == Orientation.landscape;
+    final isIOS = Platform.isIOS;
+
+    final PreferredSizeWidget appBar = _buildAppBar(isIOS);
     final transactionListWidget = Container(
       height: (
         mediaQuery.size.height
