@@ -23,11 +23,6 @@ class CategoriesScreen extends StatelessWidget {
       ),
     );
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dial Meals'),
-      ),
-      body: gridView,
-    );
+    return gridView;
   }
 }
