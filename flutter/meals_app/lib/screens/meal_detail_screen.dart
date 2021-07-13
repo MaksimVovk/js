@@ -85,6 +85,14 @@ class MealDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: appBar,
       body: body,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.delete,
+        ),
+        onPressed: () {
+          Navigator.of(context).pop(mealId);
+        },
+      ),
     );
   }
 }
