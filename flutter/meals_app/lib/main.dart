@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/models/meal.dart';
+import './dammy_data.dart';
 import './screens/setting_screen.dart';
 import './screens/tabs_screen.dart';
 import './screens/meal_detail_screen.dart';
@@ -9,8 +11,44 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Map<String, bool> _filters = {
+    'gluten': false,
+    'lactose': false,
+    'vegan': false,
+    'vegetarian': false,
+  };
+
+  List<Meal> _availabelMeals = DUMMY_MEALS;
+
+  void _setFilters(Map<String, bool> filterData) {
+    setState(() {
+      _filters = filterData;
+      _availabelMeals = DUMMY_MEALS.where((el) {
+        if (_filters['gluten'] && !el.isGlutenFree) {
+          return false;
+        }
+        if (_filters['lactose'] && !el.isLactoseFree) {
+          return false;
+        }
+        if (_filters['vegan'] && !el.isVegan) {
+          return false;
+        }
+        if (_filters['vegetarian'] && !el.isVegetarian) {
+          return false;
+        }
+
+        return true;
+      }).toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,10 +76,10 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (ctx) => TabScreen(),
-        '/category-meals': (ctx) => CategoryMealScreen(),
+        '/category-meals': (ctx) => CategoryMealScreen(_availabelMeals),
         // CategoryMealScreen.routeName: (ctx) => CategoryMealScreen()
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
-        SettingScreen.routeName: (ctx) => SettingScreen(),
+        SettingScreen.routeName: (ctx) => SettingScreen(_filters, _setFilters),
       },
       onGenerateRoute: (settings) {
         return MaterialPageRoute(builder: (ctx) => CategoriesScreen());

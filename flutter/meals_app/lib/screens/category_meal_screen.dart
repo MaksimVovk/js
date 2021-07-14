@@ -9,7 +9,10 @@ class CategoryMealScreen extends StatefulWidget {
   // final String title;
 
   // CategoryMealScreen(this.categoryId, this.title);
+  final List<Meal> availabelMeals;
   static const routeName = '/category-meals';
+
+  CategoryMealScreen(this.availabelMeals);
 
   @override
   _CategoryMealScreenState createState() => _CategoryMealScreenState();
@@ -31,7 +34,7 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
 
     title = routeArgs['title'];
     final categoryId = routeArgs['id'];
-    displayMeal = DUMMY_MEALS.where((meal) {
+    displayMeal = widget.availabelMeals.where((meal) {
       return meal.categories.contains(categoryId);
     })
     .toList();
