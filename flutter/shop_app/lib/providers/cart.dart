@@ -18,7 +18,11 @@ class Cart with ChangeNotifier {
   Map<String, CartItem> _items = {};
 
   Map<String, CartItem> get items {
-    return {...items};
+    return {..._items};
+  }
+
+   List<CartItem> get cartItems {
+    return {...items}.values.toList();
   }
 
   int get itemCount {
